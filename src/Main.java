@@ -24,6 +24,8 @@ public class Main {
         produto.addProducts(4);
         System.out.print("Valor em estoque após adição de quantidade: ");
         System.out.println(produto.totalValueInStock());
+        produto.removeProducts(2);
+        System.out.println(produto.totalValueInStock());
 
         produto.showData();
     }

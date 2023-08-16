@@ -19,13 +19,13 @@ public class Main {
        System.out.println("Digite a quantidade do produto");
         produto.quantity = sc.nextInt();
 
-        System.out.printf("%.2f%n", produto.totalValueInStock());
+        System.out.println("Valor do produto em estoque: "+produto.totalValueInStock());
 
         produto.addProducts(4);
+        System.out.print("Valor em estoque após adição de quantidade: ");
+        System.out.println(produto.totalValueInStock());
 
-        System.out.print("Valor em estoque após adição: ");
-        System.out.printf("%.2f%n", produto.totalValueInStock());
-
+        produto.showData();
     }
 }
 

@@ -25,6 +25,7 @@ public class Product {
         System.out.print(", ");
 
         // Formatação do preço como moeda brasileira
+
         Locale brazilianLocale = new Locale("pt", "BR");
         NumberFormat currencyFormatter = NumberFormat.getCurrencyInstance(brazilianLocale);
         String formattedPrice = currencyFormatter.format(this.price);

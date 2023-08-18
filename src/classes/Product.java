@@ -1,3 +1,5 @@
+package classes;
+
 import java.text.NumberFormat;
 import java.util.Locale;
 
@@ -5,6 +7,18 @@ public class Product {
     public String name;
     public double price;
     public int quantity;
+
+    public Product(String name, double price, int quantity){
+        this.name = name;
+        this.price = price;
+        this.quantity = quantity;
+
+    }
+    public Product(String name, double price){
+        this.name = name;
+        this.price =price;
+
+    }
 
     public String totalValueInStock(){
         double valueInStock = quantity * price;
@@ -22,7 +36,7 @@ public class Product {
     public void showData() {
         System.out.print("Dados do produto: ");
         System.out.print(this.name);
-        System.out.print(", ");
+        System.out.print("; ");
 
         // Formatação do preço como moeda brasileira
 
@@ -31,7 +45,7 @@ public class Product {
         String formattedPrice = currencyFormatter.format(this.price);
         System.out.print(formattedPrice);
 
-        System.out.print(", " + this.quantity + " unidades, ");
+        System.out.print("; " + this.quantity + " unidades; ");
 
 
         System.out.print("Valor do produto em estoque: " + totalValueInStock());

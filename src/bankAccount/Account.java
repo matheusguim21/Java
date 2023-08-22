@@ -4,11 +4,15 @@ public class Account {
 	private String number;
 	private String holder;
 	private double balance;
-	public Account(String number, String holder, double initialDeposit) {
-		this.number = number;
+	public Account( String holder, String number, double initialDeposit) {
 		this.holder = holder;
+		this.number = number;
 		deposit(initialDeposit);
 
+	}
+	public Account( String holder, String number){
+		this.holder = holder;
+		this.number = number;
 	}
 
 	public String getNumber() {

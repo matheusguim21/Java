@@ -1,8 +1,11 @@
 package exercicioListas;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Scanner;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class Main {
 	public static void main(String[] args) {
@@ -20,17 +23,35 @@ public class Main {
 					" ");
 			double employeeSalary = sc.nextDouble();
 
-			Employee employee = new Employee(employeeId, employeeName,
-					employeeSalary);
 
-			employees.add(employee);
+			employees.add(new Employee(employeeId, employeeName,
+					employeeSalary));
 		}
 
-		for(Employee empregado: employees){
 			System.out.println("----------------------------");
+		for(Employee empregado: employees){
 			empregado.showData();
 			System.out.println("----------------------------");
 		}
+		System.out.println("Digite o ID do funcionário que  você deseja " +
+				"aumentar" +
+				" o " +
+				"salário? ");
+
+		int employeeId = sc.nextInt();
+		Employee agraciado =
+				employees.stream().filter(func -> func.getId() == employeeId).findFirst().orElse(null);
+		if(agraciado == null){
+			System.out.println("Não existe funcionário com esse ID");
+		}
+		else{
+			System.out.println("Qual a porcentagem que você quer aumentar do " +
+					"salário? \n Salário: " + NumberFormat.getCurrencyInstance(new Locale("pt", "BR")).format(agraciado.getSalary()));
+			agraciado.increaseSalary(sc.nextDouble());
+		System.out.println("Dados do funcionário atualizados: ");
+		agraciado.showData();
+		}
+
 
 	}
 }

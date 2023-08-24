@@ -38,10 +38,14 @@ public class Employee {
 		this.salary = salary;
 	}
 
+	public void increaseSalary(double raisePercentage){
+		this.salary += salary *  (raisePercentage/100);
+	}
 	public void showData(){
 		System.out.println("Funcionário: "+ id);
 		System.out.println("Id: "+ id);
 		System.out.println("Nome: "+ name);
-		System.out.println("Salário: "+ NumberFormat.getCurrencyInstance(new Locale("pt", "BR")));
+		System.out.println("Salário: "+ NumberFormat.getCurrencyInstance(new Locale("pt",
+				"BR")).format(salary));
 	}
 }

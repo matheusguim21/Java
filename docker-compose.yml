@@ -1,0 +1,14 @@
+
+
+
+version: '3'
+
+services:
+  jdbc-pg:
+    image: bitnami/postgresql
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRESQL_USERNAME=javadocker
+      - POSTGRESQL_PASSWORD=javadocker
+      - POSTGRESQL_DATABASE=jdbc
